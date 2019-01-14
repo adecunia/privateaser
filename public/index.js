@@ -39,7 +39,7 @@ const events = [{
   'commission': {
     'insurance': 0,
     'treasury': 0,
-    'privateaser': 0
+    'privateaser': 0,
   }
 }, {
   'id': '65203b0a-a864-4dea-81e2-e389515752a8',
@@ -149,3 +149,22 @@ const actors = [{
 console.log(bars);
 console.log(events);
 console.log(actors);
+
+
+function booking_price(events e){
+	return e.time + e.price;
+}
+
+
+function getBar(id)
+{
+	return bars.find(bar => bar.id === id);
+}
+
+for( i=0; i< events.length;i++)
+{
+	var e = events[i];
+	bar = getBar(e.barId);
+	console.log((bar.pricePerHour*e.time) + (bar.pricePerPerson* e.persons));
+}
+
